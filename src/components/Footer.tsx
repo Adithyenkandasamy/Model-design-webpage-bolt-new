@@ -1,27 +1,19 @@
-over:text-white transition-colors duration-300"
-      onMouseEnter={() => playHover()}
-    >
-      {children}
-    </a>
-  );
-};
-
-export default function Footer() {
-  return (
-    <footer className="bg-grimport React from 'react';
-import { Camera, Mail, Phone, MapPin, Instagram, Facebook, Twitter, Linkedin, Github, Globe } from 'lucide-react';
+import React from 'react';
+import {
+  Camera, Mail, Phone, MapPin, Instagram, Facebook, Twitter, Linkedin, Github, Globe
+} from 'lucide-react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { useHoverSound } from '../hooks/useSound';
 
 const mapContainerStyle = {
   width: '100%',
   height: '200px',
-  borderRadius: '0.5rem'
+  borderRadius: '0.5rem',
 };
 
 const center = {
   lat: 40.7128,
-  lng: -74.0060
+  lng: -74.0060,
 };
 
 const SoundLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
@@ -30,7 +22,17 @@ const SoundLink = ({ href, children }: { href: string; children: React.ReactNode
   return (
     <a
       href={href}
-      className="text-gray-400 hay-900 text-white">
+      onMouseEnter={() => playHover()}
+      className="text-gray-400 hover:text-white transition-colors duration-300"
+    >
+      {children}
+    </a>
+  );
+};
+
+export default function Footer() {
+  return (
+    <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Left Column - About & Map */}
