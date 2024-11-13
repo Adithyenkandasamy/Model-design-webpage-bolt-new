@@ -52,11 +52,7 @@ export default function Footer() {
             <h3 className="text-lg font-semibold">Visit Our Studio</h3>
             <div className="flex items-start gap-2 text-gray-400">
               <MapPin className="w-5 h-5 mt-1 flex-shrink-0" />
-              <div>
-                <p>Magizh Technologies</p>
-                <p>123 Photography Lane</p>
-                <p>New York, NY 10001</p>
-              </div>
+              
             </div>
             <div className="flex items-center gap-2 text-gray-400">
               <Phone className="w-5 h-5" />
@@ -64,7 +60,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-2 text-gray-400">
               <Mail className="w-5 h-5" />
-              <span>info@lensandlight.com</span>
+              <span>adithyen1@gmail.com</span>
             </div>
             <Map />
           </div>
