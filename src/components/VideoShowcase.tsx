@@ -1,4 +1,4 @@
-mport React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Play, Pause } from 'lucide-react';
 
 export default function VideoShowcase() {
