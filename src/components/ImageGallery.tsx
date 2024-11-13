@@ -4,6 +4,7 @@ interface Image {
   src: string;
   category: string;
   alt: string;
+  description: string;
 }
 
 interface ImageGalleryProps {
@@ -13,16 +14,14 @@ interface ImageGalleryProps {
 }
 
 export default function ImageGallery({ images, onImageClick, selectedCategory }: ImageGalleryProps) {
-  const filteredImages = selectedCategory === 'all' 
-    ? images 
-    : images.filter(img => img.category === selectedCategory);
+  const filteredImages = images.filter(img => img.category === selectedCategory);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {filteredImages.map((image) => (
         <div
           key={image.src}
-          className="group relative aspect-[4/5] overflow-hidden rounded-lg cursor-pointer"
+          className="group relative aspect-[4/5] overflow-hidden rounded-lg cursor-pointer hover-card"
           onClick={() => onImageClick(image.src)}
         >
           <img
@@ -30,7 +29,10 @@ export default function ImageGallery({ images, onImageClick, selectedCategory }:
             alt={image.alt}
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+            <p className="text-sm font-light">{image.description}</p>
+          </div>
         </div>
       ))}
     </div>
