@@ -67,18 +67,20 @@ export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = React.useState('weddings');
   const [selectedImage, setSelectedImage] = React.useState<string | null>(null);
 
+  const filteredImages = images.filter(img => img.category === selectedCategory);
+
   return (
     <section className="py-24 bg-gradient-to-b from-white to-gray-50" id="portfolio">
       <div className="container mx-auto px-4">
         <h2 className="section-heading">Our Portfolio</h2>
-        <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          Explore our diverse collection of photographs and videos, each telling its own unique story
-          through our lens.
-        </p>
+        
+        <div className="mb-24">
+          <h3 className="text-3xl font-semibold text-center mb-12">Featured Videos</h3>
+          <VideoShowcase />
+        </div>
 
-        <VideoShowcase />
-
-        <div className="mt-16">
+        <div>
+          <h3 className="text-3xl font-semibold text-center mb-12">Photo Gallery</h3>
           <CategoryFilter
             categories={categories}
             selectedCategory={selectedCategory}
@@ -86,7 +88,7 @@ export default function Portfolio() {
           />
 
           <ImageGallery
-            images={images}
+            images={filteredImages}
             onImageClick={setSelectedImage}
             selectedCategory={selectedCategory}
           />
